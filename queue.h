@@ -5,8 +5,8 @@
 #include "node.h"
  
 typedef struct queue {
-  int size;
-  node *front;
+  int size; 
+  node *front; //I think the two node pointers are here so the tail and head stay together?
   node *rear;
 } queue;
 

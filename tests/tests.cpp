@@ -22,14 +22,16 @@ TEST_CASE("empty", "[queue]") {
   q.front = NULL;
   q.rear = NULL;
   q.size = 0;
-  REQUIRE(empty(&q));
+  int a = empty(&q);
+  REQUIRE(a);
   node n;
   n.data = 1;
   n.next = NULL;
   q.front = &n;
   q.rear = &n;
   q.size = 1;
-  REQUIRE(!empty(&q));
+  a = !empty(&q);
+  REQUIRE(a);
 }
 
 TEST_CASE("full", "[queue]") {
@@ -276,8 +278,11 @@ static const char *GREEN = "\033[32m";
   }                                                                            \
   REQUIRE(arrays_equal(arr, expected, len));
 
-TEST_CASE("positive-numbers", "[insertion_sort]") {
-  const int input[] = {5, 22, 11, 33, 3, 2, 1};
+/*niya's note: there was something wrong with the test code below, 
+because all the numbers in the list had their sign switched.*/
+TEST_CASE("positive-numbers", "[insertion_sort]") { 
+ const int input[] = {5, 22, 11, 33, 3, 2, 1};
+  
 //   const int len = sizeof(input) / sizeof(int);
   const int input_sorted[] = {1, 2, 3, 5, 11, 22, 33};
 
